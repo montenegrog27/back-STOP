@@ -15,13 +15,13 @@ const { DB_DEPLOY } = process.env;
 //   }
 // );
 
-const sequelize = new Sequelize(DB_DEPLOY, {
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   logging: false,
   native: false,
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: true, // Solo para desarrollo local. En producción, configúralo correctamente.
+      rejectUnauthorized: true, // Asegúrate de configurarlo correctamente en producción.
     },
   },
 });
