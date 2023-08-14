@@ -1,7 +1,11 @@
 require("dotenv").config();
 require("pg");
-
 const { Sequelize } = require("sequelize");
+
+const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false,
+  native: false,
+});
 
 // const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, BDD } = process.env;
 // console.log(DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, BDD);
@@ -14,17 +18,6 @@ const { DB_DEPLOY } = process.env;
 //     native: false,
 //   }
 // );
-
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  logging: false,
-  native: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: true, // Asegúrate de configurarlo correctamente en producción.
-    },
-  },
-});
 
 // Importa los modelos aquí y configúralos si es necesario
 const PrecioModel = require("./models/price")(sequelize, Sequelize);
