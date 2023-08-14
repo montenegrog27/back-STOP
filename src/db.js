@@ -21,7 +21,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false, // Solo para desarrollo local. En producción, configúralo correctamente.
+      rejectUnauthorized: true, // Solo para desarrollo local. En producción, configúralo correctamente.
     },
   },
 });
