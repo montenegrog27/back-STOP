@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("pg");
 const { Sequelize } = require("sequelize");
+const { DB_DEPLOY } = process.env;
 
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
@@ -9,7 +10,6 @@ const sequelize = new Sequelize(DB_DEPLOY, {
 
 // const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, BDD } = process.env;
 // console.log(DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, BDD);
-const { DB_DEPLOY } = process.env;
 
 // const sequelize = new Sequelize(
 //   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${BDD}`,
