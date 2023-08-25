@@ -29,7 +29,7 @@ router.post("/actualizar-precios", setPriceController.actualizarPrecios); //ACTU
 
 //      OFERTAS
 router.get("/ofertas", getSaleController.getOfertas);
-router.path("/ofertas/:id", updateSaleController.modificarOferta);
+router.put("/ofertas/:id", updateSaleController.modificarOferta);
 router.post("/ofertas", createSaleController.crearOfertas);
 router.delete("/ofertas/:id", deleteSaleController.eliminarOferta);
 
