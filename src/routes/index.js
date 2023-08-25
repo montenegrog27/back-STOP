@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const getSaleController = require("../controllers/saleControllers/getSaleController");
 const createSaleController = require("../controllers/saleControllers/createSaleController");
+const updateSaleController = require("../controllers/saleControllers/updateSaleController");
 const deleteSaleController = require("../controllers/saleControllers/deleteSaleController");
 const getPriceController = require("../controllers/priceControllers/getPriceController");
 const setPriceController = require("../controllers/priceControllers/setPriceController");
@@ -27,13 +28,9 @@ router.get("/precios", getPriceController.getPrecios); //TRAE LOS PRECIOS
 router.post("/actualizar-precios", setPriceController.actualizarPrecios); //ACTUALIZA LOS PRECIOS
 
 //      OFERTAS
-// Obtener todas las ofertas
 router.get("/ofertas", getSaleController.getOfertas);
-
-// Crear ofertas
+router.path("/ofertas/:id", updateSaleController.modificarOferta);
 router.post("/ofertas", createSaleController.crearOfertas);
-
-// Eliminar oferta por su ID
 router.delete("/ofertas/:id", deleteSaleController.eliminarOferta);
 
 module.exports = router;
